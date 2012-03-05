@@ -2,6 +2,7 @@
 
 #include "ofMain.h"
 #include "ofEvents.h"
+#include "arduinoConnect.h"
 
 
 class testApp : public ofSimpleApp{
@@ -23,22 +24,13 @@ public:
 	void dragEvent(ofDragInfo dragInfo);
 	void gotMessage(ofMessage msg);
 		
-	//void setupArduino(const int & version);
-    void setupArduino0();
-    void setupArduino1();
-    
-    void updateArduino();
 
-	ofImage				bgImage;
-	ofTrueTypeFont		font;
+    ofVideoPlayer 		movie1;
+    //ofVideoPlayer 		movie2;
+    //ofVideoPlayer 		movie3;
     
-	ofArduino	ard0;
-    ofArduino   ard1;
-    
-	bool		bSetupArduino0;			// flag variable for setting up arduino once
-    bool        bSetupArduino1;
-    
-    
+    arduinoConnect myArds;
+    bool bDebug; //arduinoConnect Debug
 
 };
 
