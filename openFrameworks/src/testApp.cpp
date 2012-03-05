@@ -38,17 +38,18 @@ void testApp::draw(){
     ofBackground(190);
     
     movie1.draw(0,0);
-    /*ofSetHexColor(0x000000);
+    ofSetColor(200);
     unsigned char * pixels = movie1.getPixels();
     // let's move through the "RGB" char array
     // using the red pixel to control the size of a circle.
-    for (int i = 4; i < 320; i+=8){
-        for (int j = 4; j < 240; j+=8){
-            unsigned char r = pixels[(j * 320 + i)*3];
+    for (int i = 4; i < 800; i+=mouseX){
+        for (int j = 4; j <560; j+=mouseY){
+            unsigned char r = pixels[(j * 560 + i)*3];
             float val = 1 - ((float)r / 255.0f);
-            ofCircle(400 + i,20+j,10*val);
+            cout << val << endl;
+            ofCircle(i, j,3*val);
         }
-    }*/
+    }
     
     ofSetColor(0);
     ofDrawBitmapString("speed: " + ofToString(movie1.getSpeed(),2),25,ofGetHeight()-50);
