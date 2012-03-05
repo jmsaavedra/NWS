@@ -67,7 +67,6 @@ void arduinoConnect::draw(){
     
 //if (((testApp*)ofGetAppPtr())->bDebug){ //show debugger
     ofFill();
-    ofEnableAlphaBlending();
     ofSetColor(0,60);                     //raw data
     ofRect(0, 0, 300, numArduinos * 150); 
     ofSetColor(255,100);                   //graphed data

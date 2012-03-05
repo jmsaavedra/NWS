@@ -8,6 +8,9 @@ void testApp::setup(){
 	ofSetFrameRate(60);
 
 	ofBackground(255,0,130);
+    
+    ofEnableAlphaBlending();
+    //ofEnableSmoothing();
  
     //myArds.setup( int arduinoNumber, string address, int baudRate );
     myArds.setup( 0, "/dev/tty.usbserial-A700e5Cl", 57600 );
@@ -30,6 +33,10 @@ void testApp::update(){
     //movie2.idleMovie();
     
 	myArds.update();
+    
+    x[0] = myArds.accelX[0];
+    y[0] = myArds.accelY[0];
+    z[0] = myArds.accelZ[0];
 }
 
 //--------------------------------------------------------------
@@ -38,16 +45,25 @@ void testApp::draw(){
     ofBackground(190);
     
     movie1.draw(0,0);
-    ofSetColor(200);
+    
     unsigned char * pixels = movie1.getPixels();
     // let's move through the "RGB" char array
     // using the red pixel to control the size of a circle.
-    for (int i = 4; i < 800; i+=mouseX){
-        for (int j = 4; j <560; j+=mouseY){
-            unsigned char r = pixels[(j * 560 + i)*3];
-            float val = 1 - ((float)r / 255.0f);
-            cout << val << endl;
-            ofCircle(i, j,3*val);
+    for (int i = 4; i < 800; i+=8){
+        for (int j = 4; j <560; j+=8){
+            unsigned char r = pixels[(j * 800 + i)*3];
+            //cout << "r: " << (float)r << endl;
+            val0 = (float)r;
+            val1 = 1 - (val0 / 255.0f);
+            
+            //float val2 = val0/(myArds.accelX[0]/200);
+            val2 = (int)ofMap(x[0], 330, 400, 0, 40);
+            //cout << "accelX: " << (myArds.accelX[0]) << endl;
+            
+            //val2 = (int)ofMap(val2, 3, 20, 5.0, 18.0)/2;
+            //cout << "val2: " << val2 << endl;
+            ofSetColor(200, val2);
+            ofCircle(i, j,val0);
         }
     }
     

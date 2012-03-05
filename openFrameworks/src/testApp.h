@@ -23,7 +23,14 @@ public:
 	void windowResized(int w, int h);
 	void dragEvent(ofDragInfo dragInfo);
 	void gotMessage(ofMessage msg);
-		
+    
+    float val0;
+    float val1;
+    int   val2;
+    
+    int x[2];
+    int y[2];
+    int z[2];
 
     ofVideoPlayer 		movie1;
     //ofVideoPlayer 		movie2;
