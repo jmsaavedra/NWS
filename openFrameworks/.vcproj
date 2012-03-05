@@ -2,9 +2,9 @@
 <VisualStudioProject
 	ProjectType="Visual C++"
 	Version="9.00"
-	Name="emptyExample"
+	Name="firmataExample"
 	ProjectGUID="{7FD42DF7-442E-479A-BA76-D0022F99702A}"
-	RootNamespace="emptyExample"
+	RootNamespace="firmataExample"
 	Keyword="Win32Proj"
 	TargetFrameworkVersion="131072"
 	>

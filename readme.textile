@@ -1,0 +1,18 @@
+h2. New World Symphony Project
+
+an interactive component to a NWS performance
+
+h3. each performer (2 total) has:
+* 1 accelerometer
+* GSR? Elbow Flex?
+* XBee radio attached to
+* Arduino (FIO)
+
+h3. tower 1
+* 1 XBee receiver for each performer (2 total) attached to computer
+* 1 HD Projector
+* Ethernet port [out to tower 2 for UDP/OSC packets]
+
+h3. tower 2
+* 2 HD Projectors
+* Ethernet port [in from tower 1 for UPD/OSC packets]
