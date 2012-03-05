@@ -5,7 +5,7 @@
 void testApp::setup(){
 
 	//ofSetVerticalSync(true);
-	//ofSetFrameRate(60);
+	ofSetFrameRate(60);
 
 	ofBackground(255,0,130);
  
@@ -14,7 +14,7 @@ void testApp::setup(){
     //myArds.setup( 1, "/dev/tty.usbserial-A600eztS", 57600 );
     
     
-    movie1.loadMovie("movies/fingers.mov");
+    movie1.loadMovie("movies/movie1.mov");
     //movie2.loadMovie("movies/movie2.mov");
 	
     movie1.play();
@@ -35,7 +35,7 @@ void testApp::update(){
 //--------------------------------------------------------------
 void testApp::draw(){
 
-    ofBackground(255);
+    ofBackground(190);
     
     movie1.draw(0,0);
     /*ofSetHexColor(0x000000);

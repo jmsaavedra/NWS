@@ -14,9 +14,9 @@ arduinoConnect::arduinoConnect(){
     
     for(int i=0; i<numArduinos; i++){
         for(int j=0; j<300; j++){
-            accelXHistory[i][j] = 300;
-            accelYHistory[i][j] = 300;
-            accelZHistory[i][j] = 370;
+            accelXHistory[i][j] = 0;
+            accelYHistory[i][j] = 0;
+            accelZHistory[i][j] = 0;
         }
     }
 }
