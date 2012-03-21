@@ -30,6 +30,8 @@ void arduinoConnect::setup(int ardNum, string address, int baudRate){
     ard[ardNum].connect(address, baudRate);
     bSetupArduino[ardNum]	= false;
     
+    ofSetFrameRate(24);
+    
     frameCount = 0;
 }
 
@@ -78,13 +80,13 @@ void arduinoConnect::draw(){
         } else {
             
             ofSetColor(150, 50, 255);
-            ofDrawBitmapString("ard" + ofToString(i) +" // accelX: " + ofToString(accelX[i]), 50, 30+i*50);
+            ofDrawBitmapString("ard" + ofToString(i) +" // accelX: " + ofToString(accelX[i]), 50, 30+i*100);
             
             ofSetColor(50, 255, 150);
-            ofDrawBitmapString("ard" + ofToString(i) +" // accelY: " + ofToString(accelY[i]), 50, 60+i*50);
+            ofDrawBitmapString("ard" + ofToString(i) +" // accelY: " + ofToString(accelY[i]), 50, 60+i*100);
             
             ofSetColor(255,150,50);
-            ofDrawBitmapString("ard" + ofToString(i) +" // accelZ: " + ofToString(accelZ[i]), 50,90+i*50);
+            ofDrawBitmapString("ard" + ofToString(i) +" // accelZ: " + ofToString(accelZ[i]), 50,90+i*100);
             
             
             for(int j=5; j<300; j++){
