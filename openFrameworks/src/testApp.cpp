@@ -5,7 +5,7 @@
 void testApp::setup(){
 
 	//ofSetVerticalSync(true);
-	ofSetFrameRate(60);
+	ofSetFrameRate(24);
 
 	ofBackground(255,0,130);
     
@@ -17,14 +17,6 @@ void testApp::setup(){
     myArds.setup( 1, "/dev/tty.usbserial-A600eztS", 57600 );
     
     
-    //movie1.loadMovie("movies/movie1.mov");
-    //movie2.loadMovie("movies/movie2.mov");
-	
-    //movie1.play();
-    //movie1.play();
-    
-    //movie1.setVolume(0);
-    
     bDebug = true;
     
     sender.setup( HOST, PORT );
@@ -32,9 +24,6 @@ void testApp::setup(){
 
 //--------------------------------------------------------------
 void testApp::update(){
-    
-    //movie1.idleMovie();
-    //movie2.idleMovie();
     
 	myArds.update();
     
@@ -79,45 +68,24 @@ void testApp::update(){
 //--------------------------------------------------------------
 void testApp::draw(){
 
-    ofBackground(190);
-    
-    //movie1.draw(0,0);
-    
-//    unsigned char * pixels = movie1.getPixels();
-//    // let's move through the "RGB" char array
-//    // using the red pixel to control the size of a circle.
-//    for (int i = 4; i < 800; i+=8){
-//        for (int j = 4; j <560; j+=8){
-//            unsigned char r = pixels[(j * 800 + i)*3];
-//            //cout << "r: " << (float)r << endl;
-//            val0 = (float)r;
-//            val1 = 1 - (val0 / 255.0f);
-//            
-//            //float val2 = val0/(myArds.accelX[0]/200);
-//            val2 = (int)ofMap(x[0], 330, 400, 0, 40);
-//            //cout << "accelX: " << (myArds.accelX[0]) << endl;
-//            
-//            //val2 = (int)ofMap(val2, 3, 20, 5.0, 18.0)/2;
-//            //cout << "val2: " << val2 << endl;
-//            ofSetColor(200, val2);
-//            ofCircle(i, j,val0);
-//        }
-//    }
+    ofBackground(0);
     
     ofSetColor(0);
-    //ofDrawBitmapString("speed: " + ofToString(movie1.getSpeed(),2),25,ofGetHeight()-50);
     
     if(bDebug){ // last
         myArds.draw();
         ofSetColor(255);
         ofDrawBitmapString("fps: " + ofToString(ofGetFrameRate()), 25, ofGetHeight()-25);
     }
+    
+    ofSetColor(255);
+    ofDrawBitmapString("violin", 25, 25);
+    ofDrawBitmapString("piano", 25, 165);
 }
 
 //--------------------------------------------------------------
 void testApp::keyPressed  (int key){
     if (key == 'd') bDebug = !bDebug;
-    //if (key == ' ') movie1.play();
 }
 
 //--------------------------------------------------------------

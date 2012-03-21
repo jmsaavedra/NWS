@@ -30,8 +30,6 @@ void arduinoConnect::setup(int ardNum, string address, int baudRate){
     ard[ardNum].connect(address, baudRate);
     bSetupArduino[ardNum]	= false;
     
-    ofSetFrameRate(24);
-    
     frameCount = 0;
 }
 
@@ -80,27 +78,26 @@ void arduinoConnect::draw(){
         } else {
             
             ofSetColor(150, 50, 255);
-            ofDrawBitmapString("ard" + ofToString(i) +" // accelX: " + ofToString(accelX[i]), 50, 30+i*100);
+            ofDrawBitmapString("ard" + ofToString(i) +" // accelX: " + ofToString(accelX[i]), 50, 50+i*140);
             
             ofSetColor(50, 255, 150);
-            ofDrawBitmapString("ard" + ofToString(i) +" // accelY: " + ofToString(accelY[i]), 50, 60+i*100);
+            ofDrawBitmapString("ard" + ofToString(i) +" // accelY: " + ofToString(accelY[i]), 50, 80+i*140);
             
             ofSetColor(255,150,50);
-            ofDrawBitmapString("ard" + ofToString(i) +" // accelZ: " + ofToString(accelZ[i]), 50,90+i*100);
+            ofDrawBitmapString("ard" + ofToString(i) +" // accelZ: " + ofToString(accelZ[i]), 50,110+i*140);
             
             
             for(int j=5; j<300; j++){
                 
                 ofSetColor(150, 50, 255);
-                if(j>2 && accelXHistory[i][j-2] > 0)ofLine(305 + j-2, 1+i*30+ accelXHistory[i][j-2], 305 + j, 0+i*30+ accelXHistory[i][j]);//[abs(frameCount-300)]);
+                if(j>2 && accelXHistory[i][j-2] > 0)ofLine(305 + j-2, 21+i*70+ accelXHistory[i][j-2], 305 + j, 20+i*70+ accelXHistory[i][j]);//[abs(frameCount-300)]);
                 ofSetColor(50, 255, 150);
-                if(j>2 && accelYHistory[i][j-2] > 0)ofLine(305 + j-2, 31+i*30+ accelYHistory[i][j-2], 305 + j, 30+i*30+ accelYHistory[i][j]);
+                if(j>2 && accelYHistory[i][j-2] > 0)ofLine(305 + j-2, 51+i*70+ accelYHistory[i][j-2], 305 + j, 50+i*70+ accelYHistory[i][j]);
                 ofSetColor(255,150,50);
-                if(j>2 && accelZHistory[i][j-2] > 0)ofLine(305 + j-2, 61+i*30+ accelZHistory[i][j-2], 305 + j, 60+i*30+ accelZHistory[i][j]);
+                if(j>2 && accelZHistory[i][j-2] > 0)ofLine(305 + j-2, 71+i*70+ accelZHistory[i][j-2], 305 + j, 70+i*70+ accelZHistory[i][j]);
             }
         }
     }
-//}
 }
 
 
