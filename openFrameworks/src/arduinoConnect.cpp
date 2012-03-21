@@ -56,7 +56,7 @@ void arduinoConnect::update(){
                 accelYHistory[i][frameCount] = accelY[i] - 300;
                 accelZHistory[i][frameCount] = accelZ[i] - 370;
             }
-        }
+        } else setupArduino(i); //REsetup this arduino
     }
     frameCount++;
     if (frameCount >= 300) frameCount = 0;

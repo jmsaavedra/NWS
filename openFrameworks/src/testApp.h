@@ -3,7 +3,10 @@
 #include "ofMain.h"
 #include "ofEvents.h"
 #include "arduinoConnect.h"
+#include "ofxOsc.h"
 
+#define HOST "localhost"
+#define PORT 12345
 
 class testApp : public ofSimpleApp{
 
@@ -32,11 +35,14 @@ public:
     int y[2];
     int z[2];
 
-    ofVideoPlayer 		movie1;
+    //ofVideoPlayer 		movie1;
     //ofVideoPlayer 		movie2;
     //ofVideoPlayer 		movie3;
     
     arduinoConnect myArds;
+    
+    ofxOscSender sender;
+
     bool bDebug; //arduinoConnect Debug
 
 };

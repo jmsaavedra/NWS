@@ -13,7 +13,7 @@
 #include "ofEvents.h"
 
 //how many Arduinos are you connecting to!
-#define numArduinos 1
+#define numArduinos 2
 
 
 class arduinoConnect {
