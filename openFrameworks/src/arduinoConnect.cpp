@@ -14,9 +14,9 @@ arduinoConnect::arduinoConnect(){
     
     for(int i=0; i<numArduinos; i++){
         for(int j=0; j<300; j++){
-            accelXHistory[i][j] = 0;
-            accelYHistory[i][j] = 0;
-            accelZHistory[i][j] = 0;
+            accelXHistory[i][j] = 100;
+            accelYHistory[i][j] = 100;
+            accelZHistory[i][j] = 100;
         }
     }
 }
@@ -86,15 +86,17 @@ void arduinoConnect::draw(){
             ofSetColor(255,150,50);
             ofDrawBitmapString("ard" + ofToString(i) +" // accelZ: " + ofToString(accelZ[i]), 50,110+i*140);
             
+            int offset = -50;
+            int divisor = 3;
             
             for(int j=5; j<300; j++){
                 
                 ofSetColor(150, 50, 255);
-                if(j>2 && accelXHistory[i][j-2] > 0)ofLine(305 + j-2, 21+i*70+ accelXHistory[i][j-2], 305 + j, 20+i*70+ accelXHistory[i][j]);//[abs(frameCount-300)]);
+                if(j>2 && accelXHistory[i][j-2] > 0)ofLine(305 + j-2, offset+i*70+ accelXHistory[i][j-2]/divisor, 305 + j, offset+i*70+ accelXHistory[i][j]/divisor);//[abs(frameCount-300)]);
                 ofSetColor(50, 255, 150);
-                if(j>2 && accelYHistory[i][j-2] > 0)ofLine(305 + j-2, 51+i*70+ accelYHistory[i][j-2], 305 + j, 50+i*70+ accelYHistory[i][j]);
+                if(j>2 && accelYHistory[i][j-2] > 0)ofLine(305 + j-2, (offset+30)+i*70+ accelYHistory[i][j-2]/divisor, 305 + j, (offset+30)+i*70+ accelYHistory[i][j]/divisor);
                 ofSetColor(255,150,50);
-                if(j>2 && accelZHistory[i][j-2] > 0)ofLine(305 + j-2, 71+i*70+ accelZHistory[i][j-2], 305 + j, 70+i*70+ accelZHistory[i][j]);
+                if(j>2 && accelZHistory[i][j-2] > 0)ofLine(305 + j-2, (offset+60)+i*70+ accelZHistory[i][j-2]/divisor, 305 + j, (offset+60)+i*70+ accelZHistory[i][j]/divisor);
             }
         }
     }
