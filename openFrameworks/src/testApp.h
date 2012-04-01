@@ -5,9 +5,11 @@
 #include "arduinoConnect.h"
 #include "ofxOsc.h"
 
+
 //#define HOST "leifsair.local"
 //#define HOST 127.0.0.1
-#define HOST "localhost"
+#define LOCALHOST "localhost"
+#define REMOTEHOST "10.0.1.6"
 #define PORT 12345
 
 class testApp : public ofSimpleApp{
@@ -43,7 +45,8 @@ public:
     
     arduinoConnect myArds;
     
-    ofxOscSender sender;
+    ofxOscSender oscLocal;
+    ofxOscSender oscMax;
 
     bool bDebug; //arduinoConnect Debug
 

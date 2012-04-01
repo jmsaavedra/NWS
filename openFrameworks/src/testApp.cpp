@@ -19,7 +19,8 @@ void testApp::setup(){
     
     bDebug = true;
     
-    sender.setup( HOST, PORT );
+    oscLocal.setup( LOCALHOST, PORT );
+    oscMax.setup( REMOTEHOST, PORT );
 }
 
 //--------------------------------------------------------------
@@ -37,32 +38,38 @@ void testApp::update(){
     ofxOscMessage m;
 	m.setAddress("/violin/x");
 	m.addIntArg( x[0] );
-	sender.sendMessage( m );
+	oscLocal.sendMessage( m );
+    oscMax.sendMessage( m );
     
     ofxOscMessage n;
 	n.setAddress("/violin/y");
 	n.addIntArg( y[0] );
-	sender.sendMessage( n );
+	oscLocal.sendMessage( n );
+    oscMax.sendMessage( n );
     
     ofxOscMessage o;
 	o.setAddress("/violin/z");
 	o.addIntArg( z[0] );
-	sender.sendMessage( o );
+	oscLocal.sendMessage( o );
+    oscMax.sendMessage( o );
     
     ofxOscMessage q;
 	q.setAddress("/piano/x");
 	q.addIntArg( x[1] );
-	sender.sendMessage( q );
+	oscLocal.sendMessage( q );
+    oscMax.sendMessage( q );
     
     ofxOscMessage p;
 	p.setAddress("/piano/y");
 	p.addIntArg( y[1] );
-	sender.sendMessage( p );
+	oscLocal.sendMessage( p );
+    oscMax.sendMessage( p );
     
     ofxOscMessage r;
 	r.setAddress("/piano/z");
 	r.addIntArg( z[1] );
-	sender.sendMessage( r );
+	oscLocal.sendMessage( r );
+    oscMax.sendMessage( r );
 }
 
 //--------------------------------------------------------------
@@ -76,7 +83,7 @@ void testApp::draw(){
         myArds.draw();
         ofSetColor(255);
         ofDrawBitmapString("fps: " + ofToString(ofGetFrameRate()), 25, ofGetHeight()-25);
-        ofDrawBitmapString("HOST: " + ofToString(HOST) + "   PORT: " + ofToString(PORT), ofGetWidth()/2 - 5, ofGetHeight()-25);
+        ofDrawBitmapString("HOST: " + ofToString(REMOTEHOST) + "   PORT: " + ofToString(PORT), ofGetWidth()/2 - 5, ofGetHeight()-25);
     }
     
     ofSetColor(255);
