@@ -5,8 +5,9 @@
 #include "arduinoConnect.h"
 #include "ofxOsc.h"
 
-#define HOST "leifsair.local"
-//#define HOST 10.0.1.6
+//#define HOST "leifsair.local"
+//#define HOST 127.0.0.1
+#define HOST "localhost"
 #define PORT 12345
 
 class testApp : public ofSimpleApp{
